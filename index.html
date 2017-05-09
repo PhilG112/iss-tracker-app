@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ISS Tracker App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container container-fluid">
+            <main class="jumbotron">
+                <h1>ISS Tracker App</h1>
+                <nav>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#space-ppl">Space People</a></li>
+                        <li><a data-toggle="tab" href="#iss-location">Location of ISS</a></li>
+                        <li><a data-toggle="tab" href="#iss-map">Map of ISS</a></li>
+                        <li><a data-toggle="tab" href="#iss-poly">Polyline of ISS</a></li>
+                    </ul>
+                </nav>
+
+                <div class="tab-content">
+                    <div id="space-ppl" class="tab-pane fade in active">
+                        <div class="people-results">
+                            <h2>There are <span class="num-ppl"></span> people in space:</h2>
+                        </div>
+                    </div>
+
+                    <div id="iss-location" class="tab-pane fade">
+                        <div class="iss-results">
+                            <h2>The current location of the ISS is:</h2>
+                            <p>Longitude: <span class="iss-longitude"></span></p>
+                            <p>Longitude: <span class="iss-latitude"></span></p>
+                        </div>
+                    </div>
+
+                    <div id="iss-map" class="tab-pane fade">
+                        <h2>ISS Position</h2>
+                        <div id="map"></div>
+                    </div>
+
+                    <div id="iss-poly" class="tab-pane fade">
+                        <h2>ISS Poly Line</h2>
+                        <div id="map-poly"></div>
+                    </div>
+
+                </div>           
+            </main>
+        </div>
+        
+        <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
+    </body>
+</html>

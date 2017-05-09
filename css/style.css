@@ -1,0 +1,29 @@
+body {
+    text-align: center;
+}
+
+.jumbotron {
+    min-height: 100%;
+    padding-top: 10px;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#map-poly {
+    height: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.nav-tabs > li, .nav-pills > li {
+    float: none;
+    display:inline-block;
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+}

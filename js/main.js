@@ -9,7 +9,7 @@ $(document).ready(function() {
 });
 
 // ----------- PPL IN SPACE -----------
-var NUM_OF_PPL_URL = "http://api.open-notify.org/astros.json"
+var NUM_OF_PPL_URL = "http://api.open-notify.org/astros.json";
 
 function getPeopleInSpace() {
     $.ajax({
@@ -30,7 +30,7 @@ function displayPeople(response) {
 }
 
 // ------------ ISS -----------
-var ISS_URL = "http://api.open-notify.org/iss-now.json"
+var ISS_URL = "http://api.open-notify.org/iss-now.json";
 
 function getIssLocation() {
     $.ajax({

@@ -6,7 +6,7 @@ $(document).ready(function() {
         getIssLocation();
     }, 3000);
     
-})
+});
 
 // ----------- PPL IN SPACE -----------
 var NUM_OF_PPL_URL = "http://api.open-notify.org/astros.json"
@@ -37,7 +37,10 @@ function getIssLocation() {
         url: ISS_URL,
         method: "GET",
         dataType: "JSONP"
-    }).done(displayIssLocation);
+    }).done(function(data) {
+        displayIssLocation(data);
+        return data;
+    });
 }
 
 function displayIssLocation(response) {
@@ -50,18 +53,20 @@ function displayIssLocation(response) {
 
 // ------ GOOGLE MAP TRACKING -------
 var map;
-var poly;
+var polyMap;
+var polyPaths = [];
 function initMap(lat, long) {    
     var iss = {lat: lat, lng: long};
+    polyPaths.push(iss);
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
         center: iss
     });
-    marker = new google.maps.Marker({
+    var vmarker = new google.maps.Marker({
         title: "ISS",
         position: iss,
-        map: map
-        // icon: "assets/ufo-icon.png"
+        map: map,
+        icon: "assets/ufo-icon.png"
     });
 
     poly = new google.maps.Map(document.getElementById('map-poly'), {
@@ -70,7 +75,7 @@ function initMap(lat, long) {
     });
     var issPath = new google.maps.Polyline({
         map: poly,
-        path: iss,
+        path: polyPaths,
         geodesic: true,
         strokeColor: '#FF0000',
         strokeOpacity: 1.0,

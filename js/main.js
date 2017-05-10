@@ -23,7 +23,7 @@ function displayPeople(response) {
     var numOfPeople = response.number;
     $(".num-ppl").text(numOfPeople);
     for (var i = 0; i < numOfPeople; i++) {
-        var $newPara = $("<p></p>")
+        var $newPara = $("<p></p>");
         $newPara.text(response.people[i].name);
         $newPara.appendTo(".people-results");
     }
@@ -59,23 +59,23 @@ function initMap(lat, long) {
     var iss = {lat: lat, lng: long};
     polyPaths.push(iss);
     
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = map || new google.maps.Map(document.getElementById('map'), {
         zoom: 3,
         center: iss
     });
-    var vmarker = new google.maps.Marker({
+    var marker = new google.maps.Marker({
         title: "ISS",
         position: iss,
-        map: map,
-        icon: "assets/ufo-icon.png"
+        map: map
+        // icon: "assets/ufo-icon.png"
     });
 
-    poly = new google.maps.Map(document.getElementById('map-poly'), {
+    polyMap = polyMap || new google.maps.Map(document.getElementById('map-poly'), {
         zoom: 3,
         center: iss
     });
     var issPath = new google.maps.Polyline({
-        map: poly,
+        map: polyMap,
         path: polyPaths,
         geodesic: true,
         strokeColor: '#FF0000',
